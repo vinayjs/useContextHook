@@ -1,16 +1,18 @@
 import React from "react";
-import { useState } from "react";
+import { useState, createContext} from "react";
 import User from "./User";
 import Login from "./Login";
 
-function App() {
-   
+ export const ManageState = createContext(null)
+
+function App() { 
   const [names, setName] = useState('')
+  
   return (
-    <>
-    <User names={names} /> 
-    <Login setName={setName} />
-    </>
+    <ManageState.Provider value={{names, setName}}>
+    <User  /> 
+    <Login  />
+    </ManageState.Provider>
   );
 }
 

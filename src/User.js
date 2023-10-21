@@ -1,9 +1,12 @@
- import React from "react"
+ import React from "react";
+ import { useContext } from "react";
+ import { ManageState } from "./App";
  
- function  User({names}){
+ function  User(){
+    const{names} = useContext(ManageState)
     return (
         <>
-        <h1>User: {names}</h1>
+        <h1>User:{names} </h1>
         </>
     )
 }
